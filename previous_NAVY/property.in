@@ -1,0 +1,15 @@
+SERVER="root@192.168.10.34"
+SERVER_PW='bntsoldev'
+SAR="minji@192.168.10.6"
+SAR_PW='ming9583'
+SAR_PATH=C:\NC\
+DATABASE=iois
+DB_HOST=greenblue.iptime.org
+DB_PORT=8751
+DB_USER=iois
+DB_PW=Iois
+REMOTE_PATH=/var/download
+DATA_PATH=/DATA/NAVY/source/data
+NCL_PATH=/DATA/NAVY/source/ncl
+LOG_FOLDER_PATH=/DATA/NAVY/source/LOG
+WEIGHT_PATH=/DATA/NAVY/source/ncl/weight_files
