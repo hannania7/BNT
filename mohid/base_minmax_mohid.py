@@ -1,0 +1,49 @@
+#!/usr/bin/python3.7
+
+import os
+from sys import argv
+import sys
+import netCDF4
+import numpy as np
+from datetime import datetime, timedelta
+import json
+
+def minmax(filepath,varname,timestep, s_rho='99'):  
+    nc= netCDF4.Dataset(filepath, mode ='r')
+    
+    if varname == "temp":       
+        vout = nc.variables[varname][int(timestep),int(s_rho),:,:]
+    elif varname == "sali":
+        vout = nc.variables['salt'][int(timestep),int(s_rho),:,:]       
+    elif varname == "elev":
+        vout = nc.variables[varname][int(timestep),:,:]        
+    else:
+        sys.exit()
+
+    vout=np.ma.masked_where(vout<=-99.9,vout)
+    vout.set_fill_value=1.0E37
+
+    filename_with_ext = os.path.basename(filepath)
+    filename_without_ext, file_ext = os.path.splitext(filename_with_ext)
+    yyyymmdd12 = filename_without_ext[-10:]
+    
+    path1 = os.path.split(filepath)
+    path2 = os.path.split(path1[0])
+    foldername = path2[1]
+        
+    data = [{"data":varname,"min": float(np.ma.min(vout[:,:])),"max":float(np.ma.max(vout[:,:]))}]
+    
+    if varname == "elev":
+        with open('/DATA/PYTHON/output/mohid/base_%s_%s_%04d_%s_00_minmax.json' % \
+                 (foldername.lower(),yyyymmdd12,int(timestep),varname), "w") as f:
+            json.dump(data,f)
+    else:
+        with open('/DATA/PYTHON/output/mohid/base_%s_%s_%04d_%s_%02d_minmax.json' % \
+                 (foldername.lower(),yyyymmdd12,int(timestep),varname,int(s_rho)), "w") as f:
+            json.dump(data,f)
+
+
+    return
+
+if __name__ == "__main__":
+    minmax(*argv[1:])
