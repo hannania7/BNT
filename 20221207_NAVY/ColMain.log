@@ -1,0 +1,93 @@
+ Copyright (C) 1995-2019 - All Rights Reserved
+ University Corporation for Atmospheric Research
+ NCAR Command Language Version 6.6.2
+ The use of this software is governed by a License Agreement.
+ See http://www.ncl.ucar.edu/ for more details.
+ Copyright (C) 1995-2019 - All Rights Reserved
+ University Corporation for Atmospheric Research
+ NCAR Command Language Version 6.6.2
+ The use of this software is governed by a License Agreement.
+ See http://www.ncl.ucar.edu/ for more details.
+ Copyright (C) 1995-2019 - All Rights Reserved
+ University Corporation for Atmospheric Research
+ NCAR Command Language Version 6.6.2
+ The use of this software is governed by a License Agreement.
+ See http://www.ncl.ucar.edu/ for more details.
+/usr/lib64/python3.6/site-packages/pyproj/__init__.py:78: UserWarning: Valid PROJ data directory not found. Either set the path using the environmental variable PROJ_LIB or with `pyproj.datadir.set_data_dir`.
+  warnings.warn(str(err))
+/usr/lib64/python3.6/site-packages/pyproj/crs/crs.py:53: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  return _prepare_from_string(" ".join(pjargs))
+/usr/lib64/python3.6/site-packages/pyproj/crs/crs.py:294: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  projstring = _prepare_from_string(" ".join((projstring, projkwargs)))
+/usr/lib64/python3.6/site-packages/pyproj/crs/crs.py:53: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  return _prepare_from_string(" ".join(pjargs))
+/usr/lib64/python3.6/site-packages/pyproj/crs/crs.py:294: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  projstring = _prepare_from_string(" ".join((projstring, projkwargs)))
+20221207
+[0, 'File exists']
+1
+/DATA/NAVY/source/ncl/regrid_wrf.ncl
+/DATA/NAVY/source/ncl/weight_files/wgt_file_wrf.nc
+make_wrf_speed_nc output_path /DATA/recv/2021/pred/WRF/20220303/wrfdm1_20220303_20220305_speed.nc
+0.0 0.48956302642822264
+/usr/lib64/python3.6/site-packages/pyproj/__init__.py:78: UserWarning: Valid PROJ data directory not found. Either set the path using the environmental variable PROJ_LIB or with `pyproj.datadir.set_data_dir`.
+  warnings.warn(str(err))
+20221207
+[0, 'File exists']
+1
+/DATA/NAVY/source/ncl/regrid_mid.ncl
+/DATA/NAVY/source/ncl/weight_files/wgt_file_mid.nc
+ Copyright (C) 1995-2019 - All Rights Reserved
+ University Corporation for Atmospheric Research
+ NCAR Command Language Version 6.6.2
+ The use of this software is governed by a License Agreement.
+ See http://www.ncl.ucar.edu/ for more details.
+/usr/lib64/python3.6/site-packages/pyproj/__init__.py:78: UserWarning: Valid PROJ data directory not found. Either set the path using the environmental variable PROJ_LIB or with `pyproj.datadir.set_data_dir`.
+  warnings.warn(str(err))
+20221207
+[0, 'File exists']
+1
+/DATA/NAVY/source/ncl/regrid_ww3.ncl
+/DATA/NAVY/source/ncl/weight_files/wgt_file_ww3.nc
+/usr/lib64/python3.6/site-packages/pyproj/__init__.py:78: UserWarning: Valid PROJ data directory not found. Either set the path using the environmental variable PROJ_LIB or with `pyproj.datadir.set_data_dir`.
+  warnings.warn(str(err))
+20221207
+[0, 'File exists']
+1
+/DATA/NAVY/source/ncl/regrid_wrf_8d.ncl
+/DATA/NAVY/source/ncl/weight_files/wgt_file_wrf_8d.nc
+/usr/lib64/python3.6/site-packages/pyproj/__init__.py:78: UserWarning: Valid PROJ data directory not found. Either set the path using the environmental variable PROJ_LIB or with `pyproj.datadir.set_data_dir`.
+  warnings.warn(str(err))
+20221207
+[0, 'File exists']
+1
+/DATA/NAVY/source/ncl/regrid_mohid300m.ncl
+/DATA/NAVY/source/ncl/weight_files/wgt_file_mohid300m.nc
+ Copyright (C) 1995-2019 - All Rights Reserved
+ University Corporation for Atmospheric Research
+ NCAR Command Language Version 6.6.2
+ The use of this software is governed by a License Agreement.
+ See http://www.ncl.ucar.edu/ for more details.
+/usr/lib64/python3.6/site-packages/pyproj/__init__.py:78: UserWarning: Valid PROJ data directory not found. Either set the path using the environmental variable PROJ_LIB or with `pyproj.datadir.set_data_dir`.
+  warnings.warn(str(err))
+/usr/lib64/python3.6/site-packages/pyproj/crs/crs.py:53: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  return _prepare_from_string(" ".join(pjargs))
+/usr/lib64/python3.6/site-packages/pyproj/crs/crs.py:294: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  projstring = _prepare_from_string(" ".join((projstring, projkwargs)))
+/usr/lib64/python3.6/site-packages/pyproj/crs/crs.py:53: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  return _prepare_from_string(" ".join(pjargs))
+/usr/lib64/python3.6/site-packages/pyproj/crs/crs.py:294: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  projstring = _prepare_from_string(" ".join((projstring, projkwargs)))
+20221207
+[0, 'File exists']
+1
+/DATA/NAVY/source/ncl/regrid_yes3k.ncl
+/DATA/NAVY/source/ncl/weight_files/wgt_file_yes3k.nc
+make_yes3k_speed_nc output_path /DATA/recv/2021/pred/YES3K/20220608/YES3K_2022060800_speed.nc
+/usr/lib64/python3.6/site-packages/pyproj/__init__.py:78: UserWarning: Valid PROJ data directory not found. Either set the path using the environmental variable PROJ_LIB or with `pyproj.datadir.set_data_dir`.
+  warnings.warn(str(err))
+20221207
+[0, 'File exists']
+1
+/DATA/NAVY/source/ncl/regrid_yes3k_8d.ncl
+/DATA/NAVY/source/ncl/weight_files/wgt_file_yes3k_8d.nc
