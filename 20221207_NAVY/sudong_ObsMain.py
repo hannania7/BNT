@@ -78,46 +78,46 @@ class ObsObject:
 						obs_object = ObsObject(station_path, data_name, obs_date)
 				if os.path.isfile(self.file_path):
 					with open(self.file_path, 'r', encoding='ISO-8859-1') as fp:
-						print(obs_date[8:10])
-						if self.station_name == 'kg':
-							if obs_date[8:10] != '00':
-								gop = 2 * (int(obs_date[8:10]) - 1) + 4
-							elif obs_date[8:10] == '00':
-								gop = 50
-							read_obs_data_row = fp.readlines()[gop:-1]								
-						elif self.station_name == 'tidal':
-							if obs_date[8:10] != '00':
-								gop = 60 * (int(obs_date[8:10]) - 1) + 4
-							elif obs_date[8:10] == '00':
-								gop = 1384
-							read_obs_data_row = fp.readlines()[gop:-1]								
-						elif self.station_name == 'sf':
-							if obs_date[8:10] != '00':
-								gop = 60 * (int(obs_date[8:10]) - 1) + 4
-							elif obs_date[8:10] == '00':
-								gop = 1384
-							read_obs_data_row = fp.readlines()[gop:-1]								
-						elif self.station_name == 'ie':
-							if obs_date[8:10] != '00':
-								gop = 60 * (int(obs_date[8:10]) - 1) + 4
-							elif obs_date[8:10] == '00':
-								gop = 1384
-							read_obs_data_row = fp.readlines()[gop:-1]		
-						elif self.station_name == 'tw':
-							file_path_tw = os.path.basename(self.file_path)
-							if file_path_tw[:-12] == 'SOKCHO' or file_path_tw[:-12] == 'SJBE' or file_path_tw[:-12] == 'NAKSAN'  or file_path_tw[:-12] == 'MANGSANG' \
-								or file_path_tw[:-12] == 'JMBE'  or file_path_tw[:-12] == 'IMRANG' or file_path_tw[:-12] == 'GYEONGPO': 
-								if obs_date[8:10] != '00':
-									gop = 12 * (int(obs_date[8:10]) - 1) + 4
-								elif obs_date[8:10] == '00':
-									gop = 280
-								read_obs_data_row = fp.readlines()[gop:-1]
-							else:
-								if obs_date[8:10] != '00':
-									gop = 6 * (int(obs_date[8:10]) - 1) + 4
-								elif obs_date[8:10] == '00':
-									gop = 142
-								read_obs_data_row = fp.readlines()[gop:-1]
+						# print(obs_date[8:10])
+						# if self.station_name == 'kg':
+						# 	if obs_date[8:10] != '00':
+						# 		gop = 2 * (int(obs_date[8:10]) - 1) + 4
+						# 	elif obs_date[8:10] == '00':
+						# 		gop = 50
+						# 	read_obs_data_row = fp.readlines()[gop:-1]								
+						# elif self.station_name == 'tidal':
+						# 	if obs_date[8:10] != '00':
+						# 		gop = 60 * (int(obs_date[8:10]) - 1) + 4
+						# 	elif obs_date[8:10] == '00':
+						# 		gop = 1384
+						# 	read_obs_data_row = fp.readlines()[gop:-1]								
+						# elif self.station_name == 'sf':
+						# 	if obs_date[8:10] != '00':
+						# 		gop = 60 * (int(obs_date[8:10]) - 1) + 4
+						# 	elif obs_date[8:10] == '00':
+						# 		gop = 1384
+						# 	read_obs_data_row = fp.readlines()[gop:-1]								
+						# elif self.station_name == 'ie':
+						# 	if obs_date[8:10] != '00':
+						# 		gop = 60 * (int(obs_date[8:10]) - 1) + 4
+						# 	elif obs_date[8:10] == '00':
+						# 		gop = 1384
+						# 	read_obs_data_row = fp.readlines()[gop:-1]		
+						# elif self.station_name == 'tw':
+						# 	file_path_tw = os.path.basename(self.file_path)
+						# 	if file_path_tw[:-12] == 'SOKCHO' or file_path_tw[:-12] == 'SJBE' or file_path_tw[:-12] == 'NAKSAN'  or file_path_tw[:-12] == 'MANGSANG' \
+						# 		or file_path_tw[:-12] == 'JMBE'  or file_path_tw[:-12] == 'IMRANG' or file_path_tw[:-12] == 'GYEONGPO': 
+						# 		if obs_date[8:10] != '00':
+						# 			gop = 12 * (int(obs_date[8:10]) - 1) + 4
+						# 		elif obs_date[8:10] == '00':
+						# 			gop = 280
+						# 		read_obs_data_row = fp.readlines()[gop:-1]
+						# 	else:
+						# 		if obs_date[8:10] != '00':
+						# 			gop = 6 * (int(obs_date[8:10]) - 1) + 4
+						# 		elif obs_date[8:10] == '00':
+						# 			gop = 142
+						read_obs_data_row = fp.readlines()[4:]
 						
 
 						for data_idx, data in enumerate(read_obs_data_row):
