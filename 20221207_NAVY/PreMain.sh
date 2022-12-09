@@ -3,7 +3,7 @@
 model=$1
 date=$2
 
-python3.6 /DATA/NAVY/source/PreMain.py $model $date
+python3.6 /DATA/NAVY/source/PreMain2.py $model $date
 
 #python3.6 /DATA/NAVY/source/PreMain.py MOHID300M 20210717
 
