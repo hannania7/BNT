@@ -18,6 +18,7 @@ import DBInsertModule
 import ParsingData
 import psycopg2
 
+# PYTHON, 주석확인
 FILL_VALUE = 999999999
 PROPERTY_PATH = '/DATA/NAVY/source/property.in'
 PROPERTY = ParsingData.read_property(PROPERTY_PATH)
@@ -102,106 +103,103 @@ class ObsObject:
 						one_obs_date2 = datetime.datetime.strftime(check_num['obs_time'][0], "%Y-%m-%d %H:%M:%S")
 						one_obs_time =	one_obs_date2[-19:-3]
 						for data in enumerate(read_obs_data_row_len):
-							# 0220 -> 날짜,시간
-							if data[1].replace('/','-')[0:16] == '2021-06-02 00:00':
-							# if data[11:13].replace('/','-') = one_obs_time:
-								# print(data[0])
+							if data[1][0:16].replace('/','-') == '2021-06-02 00:00':
+							# if data[1][0:16].replace('/','-') = one_obs_time:
 
 								with open(f"{folder_path}/{know_filepath['data_name'][0]}{self.obs_date[0:8]}.dat", 'r', encoding='ISO-8859-1') as sp:		
 									read_obs_data_row = sp.readlines()[data[0] + 5 : know_index_length[-1] + 5]		
-									for data_idx, data2 in enumerate(read_obs_data_row):
-											data_obs_time = data2.split(',')[0]
-											data_obs_datetime = self.get_obs_data_time(data_obs_time)
-											obs_row_data = read_obs_data_row[data_idx]
-											obs_row_list = obs_row_data.split(",")
-											obs_row_list[-1] = obs_row_list[-1].split('\n')[0]
-											obs_row_time = self.get_obs_data_time(obs_row_list[0])
-											db_insert_value_list = list()
+						for data_idx, data2 in enumerate(read_obs_data_row):
+								obs_row_data = read_obs_data_row[data_idx]
+								obs_row_list = obs_row_data.split(",")
+								obs_row_list[-1] = obs_row_list[-1].split('\n')[0]
+								obs_row_time = self.get_obs_data_time(obs_row_list[0])
+								db_insert_value_list = list()
 
-											str_obs_row_time = datetime.datetime.strftime(obs_row_time, "%Y-%m-%d %H:%M:%S")
-											db_insert_value_list.append(know_filepath['data_name'][0])
-											obs_value_list = self.check_null(obs_row_list[1:])
+								str_obs_row_time = datetime.datetime.strftime(obs_row_time, "%Y-%m-%d %H:%M:%S")
+								if self.station_name == 'kg' or self.station_name == 'ie':
+									db_insert_value_list.append(know_filepath['data_name'][0].lower())
+								else:
+									db_insert_value_list.append(know_filepath['data_name'][0])
+								obs_value_list = self.check_null(obs_row_list[1:])
 
-											# make db insert tuple
-											db_insert_value_list.append(str_obs_row_time)
-											db_insert_value_list += obs_value_list
-											if self.station_name == 'kg' or self.station_name =='tw':
-													# 2022.6.23 원태찬 참고사항 적음 lon, lat 제거(db에 없음)
-													db_insert_value_list.pop(2)
-													db_insert_value_list.pop(2)
-											if self.file_name == "SOCHEONGCHO":
-													db_insert_value_list.append(None)
-											db_insert_value_list2 = tuple(db_insert_value_list)
-											print(db_insert_value_list2)
-											if self.station_name != 'hf':
-													table_name = self.station_name + '_station_data'
-													if self.station_name == 'kg':
-															data_value_set = "(obs_post_id, obs_time, wtemp, salt, max_wave_height_hippy_hf, max_wave_period_hippy_hf," \
-																																	"si_wave_heigh_hippy_hf, si_wave_preiod_hippy_hf, wave_dir_hippy_hf, max_wave_height_mose_hf," \
-																																	"max_wave_period_mose_hf, si_wave_heigh_mose_hf, si_wave_preiod_mose_hf, wave_dir_mose_hf," \
-																																	"max_wave_height_mose_lf, max_wave_period_mose_lf, si_wave_heigh_mose_lf, si_wave_preiod_mose_lf," \
-																																	"wave_dir_mose_lf, atemp, apress, atemp2, apress2, wspeed, wdir, rel_hum, cdir, cspeed)"
-													elif self.station_name == 'tidal':
-															data_value_set = "(obs_post_id, obs_time, wspeed, max_wspeed, wdir, atemp, apress, tide, el_con, wtemp, " \
-																																	"salt, vis, si_wave_heigh, si_wave_preiod, max_wave_height, max_wave_period)"
+								# make db insert tuple
+								db_insert_value_list.append(str_obs_row_time)
+								db_insert_value_list += obs_value_list
+								if self.station_name == 'kg' or self.station_name =='tw':
+										# 2022.6.23 원태찬 참고사항 적음 lon, lat 제거(db에 없음)
+										db_insert_value_list.pop(2)
+										db_insert_value_list.pop(2)
+								if self.file_name == "SOCHEONGCHO":
+										db_insert_value_list.append(None)
+								db_insert_value_list2 = tuple(db_insert_value_list)
+								print(db_insert_value_list2)
+								if self.station_name != 'hf':
+										table_name = self.station_name + '_station_data'
+										if self.station_name == 'kg':
+												data_value_set = "(obs_post_id, obs_time, wtemp, salt, max_wave_height_hippy_hf, max_wave_period_hippy_hf," \
+																														"si_wave_heigh_hippy_hf, si_wave_preiod_hippy_hf, wave_dir_hippy_hf, max_wave_height_mose_hf," \
+																														"max_wave_period_mose_hf, si_wave_heigh_mose_hf, si_wave_preiod_mose_hf, wave_dir_mose_hf," \
+																														"max_wave_height_mose_lf, max_wave_period_mose_lf, si_wave_heigh_mose_lf, si_wave_preiod_mose_lf," \
+																														"wave_dir_mose_lf, atemp, apress, atemp2, apress2, wspeed, wdir, rel_hum, cdir, cspeed)"
+										elif self.station_name == 'tidal':
+												data_value_set = "(obs_post_id, obs_time, wspeed, max_wspeed, wdir, atemp, apress, tide, el_con, wtemp, " \
+																														"salt, vis, si_wave_heigh, si_wave_preiod, max_wave_height, max_wave_period)"
 
-													elif self.station_name == 'tw':
-															data_value_set = "(obs_post_id, obs_time, wspeed, wdir, squall, atemp, apress, wave_height, wave_period, " \
-																																	"cspeed, cdir, wtemp, el_con, salt, vis, wave_dir, max_wave_height, max_wave_period)"
+										elif self.station_name == 'tw':
+												data_value_set = "(obs_post_id, obs_time, wspeed, wdir, squall, atemp, apress, wave_height, wave_period, " \
+																														"cspeed, cdir, wtemp, el_con, salt, vis, wave_dir, max_wave_height, max_wave_period)"
 
-													elif self.station_name == "sf":
-															data_value_set = "(obs_post_id, obs_time, rmy_wspeed, rmy_wdir, vis_3000, atemp, humidity, dew_point_temp, " \
-																																	"sea_surface_apress, apress, wtemp, rainfall, pw1m, pw1h, wxt520_wspeed, wxt520_wdir, vis_20000)"
+										elif self.station_name == "sf":
+												data_value_set = "(obs_post_id, obs_time, rmy_wspeed, rmy_wdir, vis_3000, atemp, humidity, dew_point_temp, " \
+																														"sea_surface_apress, apress, wtemp, rainfall, pw1m, pw1h, wxt520_wspeed, wxt520_wdir, vis_20000)"
 
-													elif self.station_name == 'ie':
-															table_name = table_name.replace('data', self.file_name)
-															if self.file_name == "IEODO":
-																			data_value_set = "(obs_post_id, obs_time, wspeed, max_wspeed, wdir, max_wdir, atemp, humidity, apress, " \
-																																					"solar_ra_qua, sunshine, rainfall, vis, tide, si_wave_height, wave_preiod, " \
-																																					"si_wave_height2, max_wave_height, cloud_amount, cloud_height, ctr_conductivity, " \
-																																					"ctr_wtemp, rdcp_cspeed, rdcp_cdir, ozone)"
-															elif self.file_name == "GAGEOCHO":
-																			data_value_set = "(obs_post_id, obs_time, wspeed1, wspeed2, wdir1, wdir2, atemp, humidity, apress, " \
-																																					"solar_ra_qua, sunshine, rainfall, range_tide, range_si_wave_height, " \
-																																					"range_si_wave_preiod, wave_si_wave_height, range_max_wave_height, el_con, wtemp, " \
-																																					"wave_surface_cspeed, wave_surface_cdir)"
-															elif self.file_name == "SOCHEONGCHO":
-																			data_value_set = "(obs_post_id, obs_time, wspeed1, wspeed2, wdir1, wdir2, atemp, humidity, apress, " \
-																																					"solar_ra_qua, sunshine, sunshine_duration, rainfall, vis, range_tide, range_si_wave_height, " \
-																																					"range_si_wave_preiod, wave_si_wave_height, range_max_wave_height, cloud_height, " \
-																																					"cloud_amount, el_con, wtemp, wave_surface_cspeed, wave_surface_cdir, ozone)"
-													table_name = table_name.lower()
-													obs_post_id = db_insert_value_list2[0]
-													obs_time = db_insert_value_list2[1]
+										elif self.station_name == 'ie':
+												table_name = table_name.replace('data', self.file_name)
+												if self.file_name == "IEODO":
+																data_value_set = "(obs_post_id, obs_time, wspeed, max_wspeed, wdir, max_wdir, atemp, humidity, apress, " \
+																																		"solar_ra_qua, sunshine, rainfall, vis, tide, si_wave_height, wave_preiod, " \
+																																		"si_wave_height2, max_wave_height, cloud_amount, cloud_height, ctr_conductivity, " \
+																																		"ctr_wtemp, rdcp_cspeed, rdcp_cdir, ozone)"
+												elif self.file_name == "GAGEOCHO":
+																data_value_set = "(obs_post_id, obs_time, wspeed1, wspeed2, wdir1, wdir2, atemp, humidity, apress, " \
+																																		"solar_ra_qua, sunshine, rainfall, range_tide, range_si_wave_height, " \
+																																		"range_si_wave_preiod, wave_si_wave_height, range_max_wave_height, el_con, wtemp, " \
+																																		"wave_surface_cspeed, wave_surface_cdir)"
+												elif self.file_name == "SOCHEONGCHO":
+																data_value_set = "(obs_post_id, obs_time, wspeed1, wspeed2, wdir1, wdir2, atemp, humidity, apress, " \
+																																		"solar_ra_qua, sunshine, sunshine_duration, rainfall, vis, range_tide, range_si_wave_height, " \
+																																		"range_si_wave_preiod, wave_si_wave_height, range_max_wave_height, cloud_height, " \
+																																		"cloud_amount, el_con, wtemp, wave_surface_cspeed, wave_surface_cdir, ozone)"
+										table_name = table_name.lower()
 
-													# if self.check_obs_time(table_name, obs_post_id, obs_time):
-													if self.station_name == "sf":
-														self.data_sql = f"insert into {table_name} {data_value_set} values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+										# if self.check_obs_time(table_name, obs_post_id, obs_time):
+										if self.station_name == "sf":
+											self.data_sql = f"insert into {table_name} {data_value_set} values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
 
-													elif self.station_name == 'kg':
-														self.data_sql = f"insert into {table_name} {data_value_set} values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,\
-																																																%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-													elif self.station_name == 'tidal':
-														self.data_sql = f"insert into {table_name} {data_value_set} values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+										elif self.station_name == 'kg':
+											self.data_sql = f"insert into {table_name} {data_value_set} values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,\
+																																													%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+										elif self.station_name == 'tidal':
+											self.data_sql = f"insert into {table_name} {data_value_set} values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
 
-													elif self.station_name == "tw":
-														self.data_sql = f"insert into {table_name} {data_value_set} values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+										elif self.station_name == "tw":
+											self.data_sql = f"insert into {table_name} {data_value_set} values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
 
-													elif self.station_name == "ie":
-															if self.file_name == "IEODO":
-																self.data_sql = f"insert into {table_name} {data_value_set} values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,\
-																																																		%s, %s, %s, %s, %s, %s, %s)"														  		
-															elif self.file_name == "GAGEOCHO":
-																self.data_sql = f"insert into {table_name} {data_value_set} values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,\
-																																																		%s, %s, %s)"																		
-															elif self.file_name == "SOCHEONGCHO":
-																self.data_sql = f"insert into {table_name} {data_value_set} values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,\
-																																																		%s, %s, %s, %s, %s, %s, %s, %s)"
-											with connect() as connection:
-															with connection.cursor() as cursor:
-																			cursor.execute(self.data_sql, (db_insert_value_list2))
-															cursor.close()
-											connection.close()																														
+										elif self.station_name == "ie":
+												if self.file_name == "IEODO":
+													self.data_sql = f"insert into {table_name} {data_value_set} values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,\
+																																															%s, %s, %s, %s, %s, %s, %s)"														  		
+												elif self.file_name == "GAGEOCHO":
+													self.data_sql = f"insert into {table_name} {data_value_set} values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,\
+																																															%s, %s, %s)"																		
+												elif self.file_name == "SOCHEONGCHO":
+													self.data_sql = f"insert into {table_name} {data_value_set} values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,\
+																																															%s, %s, %s, %s, %s, %s, %s, %s)"
+								with connect() as connection:
+												with connection.cursor() as cursor:
+																cursor.execute(self.data_sql, (db_insert_value_list2))
+												cursor.close()
+								connection.close()																														
 
 
 
