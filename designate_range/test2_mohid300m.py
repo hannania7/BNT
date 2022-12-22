@@ -29,16 +29,14 @@ def read_query(sql):
 		result = pd.read_sql_query(sql, con=connection)
 		return result
 	
-def find_thenearest_grd_pts(lat_array,lon_array,latitude,longitude):
-    lon = lon_array[:] - float(longitude)
-    lat = lat_array[:] - float(latitude)
-    diff = (lon * lon) + (lat * lat)
-    j_indices, i_indices = np.where(diff==diff.min())
-    j = j_indices[0]
-    i = i_indices[0]
-    # print(j)
-    # print(i)
-    return j, i
+def find_near_array(array, point):
+    result_value = np.abs(array[0] - point)
+    for cal_index, content in enumerate(array):
+        cal_result = np.abs(content - point)
+        if result_value >= cal_result:
+            (result_value, result_index) = (cal_result, cal_index)
+            result_content = content
+    return result_content, result_index
 	
 def make_mndarray2ndarray(array_p):
 		array_p.set_fill_value(0)
@@ -82,14 +80,14 @@ for k in file_name:
 				hf_lat_min = np.min(lat_ap)
 				hf_lat_max = np.max(lat_ap)
 				# print(hf_lon_max)
-
-				jmax, imax = find_thenearest_grd_pts(lat_rho2[:],lon_rho2[:],hf_lat_max,hf_lon_max)
-				jmin, imin = find_thenearest_grd_pts(lat_rho2[:],lon_rho2[:],hf_lat_min,hf_lon_min)
+				_, jmin = find_near_array(lat_rho2, float(hf_lat_min))
+				_, imin = find_near_array(lon_rho2, float(hf_lon_min))
+				_, jmax = find_near_array(lat_rho2, float(hf_lat_max))
+				_, imax = find_near_array(lon_rho2, float(hf_lon_max))
 
 				lon_rho = make_mndarray2ndarray(ncp.variables['lon'][imin:imax])
 				lat_rho = make_mndarray2ndarray(ncp.variables['lat'][jmin:jmax])
-				print(len(lat_rho))
-				print(len(lon_rho))
+    
 				lonlat_array = list()
 				var_array = list()
 
