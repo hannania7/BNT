@@ -2,7 +2,6 @@
 
 """
 file path 등의 property가 저장되어 있는 파일 파싱
-2021.04.29 이민지 작성
 """
 
 import os
