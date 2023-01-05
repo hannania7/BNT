@@ -1,7 +1,6 @@
 """
 해군 통합해양정보체계
 레이더영상, 위성영상 자료를 파싱하여 DB Insert까지 하는 모듈
-2022.12.7 원태찬 작성
 """
 import sys
 import DBInsertModule
