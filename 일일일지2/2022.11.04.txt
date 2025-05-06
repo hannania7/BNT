@@ -1,0 +1,14 @@
+<해양예보>
+- mohid2k의 모듈 생성함
+: hydrodynamic.hdf5과 waterproperties.hdf5의 샘플 파일을 받음
+: hdf5파일로는 L2_Vis파일을 만듬
+: L2_Vis파일로는 base, concat, timeserie, 자료추출, 수직단면도 모듈 구현함
+
+<통합해양>
+- 대시보드 및 수신 현황 갱신 작업
+: 자동모듈, 수동모듈 test중
+
+<기타>
+- 대리님이 지정해주신 temp.json 갯수 1620x1620이 맞음을 확인
+- hf radar에서 lat lon u v speed각각 구함
+: 조금 더 완성할 필요가 있어보임(진행중)

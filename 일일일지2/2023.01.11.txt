@@ -1,0 +1,12 @@
+<해양예보>
+1. mohid 수평단면도 height를 높게하면 더 깊은 수평단면도 사진은 제대로 나옴
+- interpolation 사용함
+- 그러나 남지현 사원님이 height를 많이 높게해도 temp값이 거의 변동없다고 하심
+: 따라서 로컬pc에 해당 파일인 L4_Vis 다운로드 후 toolsui로 데이터를 확인해보니 mohid는 yes3k와 다르게 temp값이 층에 따라 변동이 작음
+> 이 부분 정리하여서 대리님께 ppt로 전송드림
+>> 대리님이 temp값이 층에 따라 변동이 작은 것을 일단 제가 toolsui와 geoserver에 동일한 lon,lat 지점에서 데이터 찍은 값을 정리해서 보내달라고 하셔서 ppt 작성중
+
+<내일 할 것>
+- mohid 수평단면도 ppt 작성
+- 그린블루 김창범 사원님께 레이더영상/위성영상 자료 사진 받아서 이사님께 보여드리기
+- ColManual.py 모듈 test

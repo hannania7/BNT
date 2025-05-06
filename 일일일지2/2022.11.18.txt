@@ -1,0 +1,14 @@
+<통합해양>
+- 관측자료 모두 insert
+: DB의 마지막 입력된 시간을 select해서 불러오고 enumerate로 마지막 입력된 시간을 text파일의 index를 구하여서 이 index와 앞에 enumerate에서 구한 전체 index갯수로 readlines[index : 전체 index갯수]을 하여서 모두 insert하는 형식을 생각하고 구현함
+-> 모두 test시 정상작동
+- ColManual.py insert추가
+: 수동 test시 정상 작동
+: crontab으로 해보니 regrid 작동 안함
+-> sh파일에 ncl경로 지정하니 regrid 작동됨
+- 8일 예측자료 샘플 테스트
+: 수동 test시 정상 작동
+: crontab으로 테스트 필요
+
+<기타>
+- SWAN모델 정보 확인 후 메일 송부드림(to 김계영대표님)

@@ -1,0 +1,12 @@
+<통합해양>
+- ColMain.py 수정완료 및 test완료
+: 예측자료 중복 수집 변경
+- ColMainManual.py 수정완료 및 test완료
+: 해군 관리자페이지 수동수집 개선
+- 회의(with 신현호이사님, 전현지대리님)
+
+<해양예보>
+- /DATA/EST/TMSR/PY_MODULE/MohidMain.py 학습
+: MohidPre.py 주석달면서 학습
+- mohid 수평단면도
+: yes3k와 mohid300m 차이점과 공통점 정리해서 ppt로 메일 송부드림(to 신현호이사님)
