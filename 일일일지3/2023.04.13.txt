@@ -1,0 +1,15 @@
+<연안 빅데이터 플랫폼>
+- AVHRR_OI_SST데이터셋은 20230309, 20230401, 20230402빼고는 제대로 수집되고 있음
+: 위의 해당날짜는 opendap사이트에서 업로드 안되고 있음
+> 해결방법은 2달동안 지연되다가 일괄적으로 업로드 되는 경우가 MW_IR_OI_SST데이터셋이 일괄적으로 업로드 되었기 때문에, 기다리면 업로드 될 것으로 예상함
+>> 업로드되면 수동수집 할 예정
+- MW_IR_OI_SST, MW_OI_SST, NAVO_SST, OSPO_SST의 경우 어제 확인해본바 
+에러(OSError: [Errno -51] NetCDF: Unknown file format: b'D:raw_data/MW_IR_OI_SST/2023/20230410120000-REMSS-L4_GHRSST-SSTfnd-MW_IR_OI-GLOB-v02.0-fv05.1.nc)가 나와서 process.py가 자동, 수동 모두 실행이 안되고 있었음. 코드는 확인해보니 예외처리가 되어 있어서 정상이었고, raw data를 확인해보니 1kb로 다운로드 되었던 자료가 있어서 데이터 삭제함.
+: 그 후 오늘 확인해보니 raw data는 없는데 output파일은 생성되었음.
+> 뭔가 기존의 raw data인 1kb인 파일로 output파일을 잘못 생성된 것 같아서, raw data 14일치만 수동으로 다운받고 output파일 수동으로 다시 생성함
+- 나머지는 정상
+
+<기타>
+- 인수인계 파일 작성 후 송부드림(to. 이민지 대리님)
+- 솔루션개발부 회의
+

@@ -1,0 +1,18 @@
+<연안 빅데이터 플랫폼>
+- 데이터셋은 AVHRR_OI, MW_IR_OI_SST 빼고는 정상
+: MW_IR_OI_SST는 230221부터 여전히 데이터가 안 올라오고 있음
+: AVHRR_OI의 데이터는 230318는 업로드 되어있고 230319는 업로드 안 되어있고 230320는 업로드 되어있음
+> 따라서 일단은 OUTPUT 230318, 230320는 자동으로 만듬
+
+<디지털트윈>
+- postgis는 shp와 dbf파일만 import가능함
+: 그리고 postgis에서 기존의 입력된 잘못된 파일명 index를 가진 1024개 shp파일 테이블 삭제함
+: 따라서 대표님이 공유해주신 LOD 관련 pdf파일과 같이 다시 생성한 파일명 index를 가진 shp파일을 postgis 테이블에 import함
+: 그 후 postgis는 QGIS에서 시각화가 가능하다고 하여 QGIS에 shp파일들 레이어 업로드함
+> 시각화를 보고 level6의 크기로 level1까지 만드는 중
+>> 현재 level6, level5 완성
+
+<통합해양>
+- 해군 yes3k_8D가 13초 간격으로 DB insert 2번 되는 것 test해봄
+: 중복 insert는 되지 않음
+> 구글에서 검색결과 crontab에 flock 설정을 해놓으면 crontab에 의해 쉘스크립트가 실행될 동안에는 같은 쉘스크립트가 실행되지 않도록 설정 가능하다고 해서 test후 정상이 나와서 적용시키기로 이민지 대리님과 이야기함
