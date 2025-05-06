@@ -1,0 +1,13 @@
+<해군>
+- 해양가시화 점검리스트(통합)을 파이썬 코드와 연관지어서 이해하기
+
+<그린블루>
+- 그린블루 서버에서 ColManual.py를 obs자료로 돌려봤으나 오류가 나와서 해결중
+
+<검증평가 회의>
+- 이사님과 부장님에게 ui나 통계치에 대한 설명들음
+
+<해군 출장>
+- 대내연동서버에서 파일이 과거에 들어오던 말던 대내연동서버에 파일이 없으면 무조건 
+  subprocess.run(f'sshpass -p {server_pw} ssh -o "StrictHostKeyChecking=no" {server} rm -f {server_file_path}', shell=True)
+  에 의해 remove할 파일이 없어서 no such file or directory가 나올 것이라고 다시 생각이 들었는데 맞는 지 확인하기

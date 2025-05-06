@@ -1,0 +1,13 @@
+<contour 리포팅>
+- 이사님께 메일로 제출
+
+<해군>
+- regrid파일 lon, lat, u, v, temp값은 좌표계 변경전 regrid파일과 좌표계 변경후 regrid파일 값이 같음
+: 따라서 "원본nc -> scp -> 원본nc로 좌표계변경nc 생성 -> 좌표계변경nc로 regrid파일 생성 -> regrid파일 db에 입력 -> regrid파일로 speed파일 생성" 과정으로 수행
+
+- 그린블루 서버 동일하게 좌표계 변경 적용 완료
+
+- 예측자료에서 db에 update문이 없어서 부장님의 지시로 update문 만들어봄
+: 만들어 봤으나 UNIQUE 제약 조건(중복 값 없애기) 때문에 update가 안됨
+
+- 관측자료 학습

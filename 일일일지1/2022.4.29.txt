@@ -1,0 +1,14 @@
+- Gitlab에 해군 파일설명 + DBeaver 테이블 속성 + 테이블 명세서 이 세가지로 DB테이블 익히기
+: 각 파이썬 모듈마다 메인에서 쓰인 것의 함수만 봤는데 그러지 말고 함수를 부분적으로 조합해서 사용해야 하므로 모든 함수 뜻을 전부 검토함
+
+ 
+
+- 질문할 내용
+: VProfile.py모듈에서 함수인 find_near_array와 find_thenearest_grd_pts 뜻 물어보기
+: VProfile.py모듈에서 lonlat_array와 xrange 뜻 물어보기
+: HSlice.py모듈에서 lonlat_array, height 뜻 물어보기
+: HSlice.py모듈에서 함수인 yes3k_var_height_interp, move_u2rho, move_v2rho, z_interp_array 뜻 물어보기
+: HSlice.py모듈에서 함수인 get_parsing_dat에서 db_insert_value_list.pop(2)로 데이터를 지우는 이유
+: OBsMain.py모듈 함수인 make_idx_arr, get_parsing_tuv, make_lonlat_array인 3개의 함수 의미 물어보기
+: CalModelSpeed.py모듈에서 함수인 make_wrf_speed_nc에서 ocean_time[:] = r_ocean_time[:] 이 배열부분 상황마다 다른데 어떻게 쓰는 건지 물어보기
+: 파이썬 파일 돌리기 위해 ip주소 34번에서 리눅스에서 읽을 수 있게 netCDF4 설치하는 방법 물어보기

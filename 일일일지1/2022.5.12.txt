@@ -1,0 +1,9 @@
+- Gitlab 해군 wiki에서 파이썬 파일 설명을 파이썬 모듈들과 DB를 같이 보면서 다시 정독함(HSlice, VProfile만 제외)
+
+- ColMain.py모듈 부장님의 지시로 각 라인마다 뜻 적어서 정리하기(내일도 계속)
+
+- gitlab wiki의 파이썬 모듈 설명에서 질문할 것
+: 해수유동관측소(data_cate2=’hf’)부분 내용 질문하기(hf도 insert하는데 max(st_id) + 1 로 생성 안하는 이유)
+: 표류경로분석 뜻
+: MOHID300M(data_name=’MOHID300M’)에서 정의 부분 질문하기
+: get_mid_remote_path부분에서 파일 경로가 중간에 RGB로 되어있는데 맞는 건지 질문하기

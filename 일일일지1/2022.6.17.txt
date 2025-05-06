@@ -1,0 +1,16 @@
+<해군>
+- 7일예측자료 해수유동서버 전송 방안수립 v3.0.txt 수정 및 구체화한 후 이사님께 송부드리기
+- 좌표계 EPSG:4326을 EPSG:3587로 바꾸는 방법 인터넷에 검색해서 파이썬 파일로 적용하고 regrid파일 만들었으나 EPSG가 바뀌지 않음
+
+<검증평가>
+- 대리님께 받은 고해상도 가시화 시스템 파이썬 모듈 yes3k만 실행결과 정상적으로 수행완료
+: 34번(조사원 50번) opendap은 nc파일 지워지지 않음 
+: 66번 opendap인 입력자료 nc파일 remove완료
+: 66번 output인 출력자료 nc파일 생성, json파일 생성, db입력 완료
+
+- 2020_hdf_to_nc프로젝트 학습
+: MohidSeaNc.py는 hydrodynamic hdf5파일만 nc파일로 바꿈
+: MohidVisNc.py는 hydrodynamic hdf5파일과 waterProperties hdf5파일을 선택하여 nc파일로 바꿈
+
+<다음주에 할 것>
+- 좌표계 regrid한 nc파일 만드는 과정에서 잘못된 부분 있는 지 확인하고 고치기

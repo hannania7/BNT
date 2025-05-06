@@ -1,0 +1,19 @@
+- Gitlab에 해군 파일설명 + DBeaver 테이블 속성 + 테이블 명세서 이 세가지로 DB테이블 익히기(이어서)
+
+: VProfile.py모듈은 MOHID300M과 YES3K의 예측모델이 있는데, MOHID300M는 대분류(data_cate1=’anal’)가 확보되지 못해 추가 개발 필요함. 그리고 YES3K의 예측모델 경우에는 날짜, 시간을 통해 경로를 만듬(def get_yes3k_depth_file_path) -> sigma인 단위를 zlevel변환을 통해 meter로 바꿈 -> (lon, lat)의 3K간격의 격자선 배열에 있는 최인근격자점을 찾음(def find_thenearest_grd_pts) -> var_list값인 u,v 중 1개면 matplotlib로 png파일 save로 저장, u와 v둘 다 있으면 png파일 save 안함 -> txt파일은 var_list값이 1개이던 2개이던 save함
+
+ 
+
+ - Gitlab에 해군 파일설명 + DBeaver 테이블 속성 + 테이블 명세서 이 세가지로 DB테이블 익히기(실습)
+: 실습하려고 하였으나 python3파일이 리눅스에 설치가 안되어서(2.7.5버젼으로 되어있음) 따라서 f-string을 읽지 못해 오류가 많이 나와서 리눅스에 python3(3.6버젼)파일을 설치함
+: python3버젼을 설치하였으나 netCDF 모듈을 설치하기 어려워 192.168.10.66 ip로 실행하는게 나을 것 같아서 66번으로 실행함
+: VProfile.py모듈 실습 후 png파일 txt파일 생성 확인 완료, txt파일 실행도 해봄(lat과 lon이 최인근격자점으로 값이 설정확인)
+: ObsMain.py모듈을 실행하려던 중 ColManual.py모듈에서 데이터를 불러와야해서 ColManual.sh에서 대분류가 obs, 소분류가 hf인 no를 DBeaver에서 찾아내 이 no를 데이터로 입력해서 model_hfradar_dataset 테이블에 insert까지 수행함
+
+ 
+
+- 질문할 것
+: 어떠한 순서로 python 모듈을 실행시켜야 하는 지 물어보기(알고리즘)
+: 수평단면도, 수직단면도 뜻
+: scp 작업을 할 때에 어떤 모델은 scp작업을 하고 어떤 모델은 scp작업을 하지 않음. 이유가 뭔지
+: PreMain.py모듈에서 model = data_row['data_cate2'] 문장 오류뜨고 왜 쓰인 지 모르겠음 

@@ -1,0 +1,15 @@
+<해군>
+- 중복 트랜스퍼 해결 레포트 작성
+- 해군에서 수정한 코드 개발서버에서 적용시켜서 실행시켜보기
+: yes3k, wrfdm1, tcsmap, mid 해수유동서버 이동 확인
+: yes3k, wrfdm1 speed 생성 확인
+: yes3k, wrfdm1, ww3 DB입력 test 현재 불가.
+-> DB의 'model_모델명_dataset_yyyymmdd' 테이블 데이터를 삭제하면 72개 데이터가 입력이 안되고 1개만 입력이 됨.
+= 내일 부장님에게 여쭤봐서 해결 필요.    
+: 관측자료 이동 확인
+: 분석자료 이동 확인
+- 이사님에게 Colstat에 따라 성공, 지연, 대기 구분하는 방법 강의들음
+- shell script로 PL/SQL의 function관련해서 create table 만듬
+
+<내일 할 것>
+- 부장님께 도움받아서 7일 예측자료 DB Insert 완성시키기

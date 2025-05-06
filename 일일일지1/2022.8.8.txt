@@ -1,0 +1,14 @@
+<검증평가>
+- SWAN모델 작성 완료.
+: python단에서는 base, concat모두 regrid.nc, minmax.json 각각 생성완료.
+: 웹에서 test필요.
+
+<해군> 
+- DB2 90일전 nc파일 자동삭제 모듈 완성.
+: 개발서버 test시 90일 전 nc파일 모두 지워짐(20220808기준 백업 후 20220510 자료 일괄삭제).
+: DB data_cate2 일부 수정, 김재중부장님과 전현지대리님께 수정사항 정리해서 메일로 송부드림.
+- data_cate2 수정 후 7일 예측자료, 관측자료, 분석자료 한 번 더 실행.
+: wrfdm1, yes3k, ww3, TCSMap, MID, wrfdm1_7D, wrfdm2_7D, yes3k_7D 정상 수행.
+: 관측자료, 분석자료 정상 수행.
+- 기존에 wrfdm2 test할 수 있는 DB Table이 없어서 20210928 새로 생성중.
+: model_wrfdm2_data_20210928, model_wrfdm2_dataset_20210928 생성중.

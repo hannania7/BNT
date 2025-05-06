@@ -1,0 +1,7 @@
+- ColMain.py모듈 부장님의 지시로 각 라인마다 뜻 적어서 정리하기
+: gitlab wiki에 파이썬 파일 같이 보면서 정리
+: 정리하다가 check_obs_file()함수에서 아스키코드로 바꾼 data_date가 어떻게 생긴 지 정확히 알기 위해 ColManual.py obs데이터로 head테이블의 no = 66, log테이블의 data_date = 20210602, obs_time = 23:00 으로 실행시켜봄
+
+- 해군 통합해양정보체계 교육자료 이사님께 강의 들음
+: 리뷰를 통해 강의 내용 습득
+: ColManual.py 학습 더 필요

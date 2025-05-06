@@ -1,0 +1,26 @@
+<해군>
+- 7일 예측자료 DB create table하려고 시도함
+: crontab과 연관되어 있어 해군에서 더 찾아보거나 부장님께 질문해야겠다는 것으로 판단됨
+- 7일 예측자료 DB 입력만 생략하고 시도함
+(1) yes3k_7D
+: 좌표계변환 적용함
+: 정상적으로 speed만듬(변수 angle을 speed에 넣을 지 추후에 부장님께 질문 필요)
+: toolsUI로 데이터 확인 아직 못함
+(2) wrfdm1_7D, wrfdm2_7D, yes3k, wrfdm1, wrfdm2
+: 좌표계변환 적용함
+: 정상적으로 speed만듬 확인
+: toolsUI로 데이터 확인 아직 못함
+(3) 관측자료
+: 정상 작동함
+(4) 분석자료 테스트 필요(다음주)
+
+<검증평가>
+- 자료동화 기상모델 파일 만듬
+(1)wrfdm1
+: concat uv, Tair, Pair toolsUI확인
+: base uv, Tair, Pair이고 timestep 1,2모두 toolsUI확인
+-> 모두 정상
+(2)wrfdm2
+: concat uv, Tair, Pair toolsUI확인
+: base uv, Tair, Pair이고 timestep 1,2모두 toolsUI확인
+-> 모두 정상 

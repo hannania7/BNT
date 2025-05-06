@@ -1,0 +1,16 @@
+<해군>
+- wrfdm2 20210928 DB Create table, Insert완료.
+: wrfdm2 test 할 수 있는 table이 없었기 때문에 생성.
+- 7일 예측자료만 적용가능하게 python 모듈 수정.
+: 이사님이 DB2 90일 전 삭제 모듈 이번에 출장가서 적용하기엔 risk가 크다고 하셨기 때문.
+: 개발서버 DB 원상복귀.
+- 7일 예측자료 python모듈 수정 후 실행.
+: yes3k, wrfdm1, wrfdm2, ww3, tcsmap, mid, yes3k_7d, wrfdm1_7d, wrfdm2_7d, 관측자료, 분석자료 정상 수행.
+- 운영서버 유향,유속 heatmap이 일부만 나온다고 하여 전화로 DB yes3k dataset 오영택 주무관님께 확인해달라고 요청함.
+: 20220728부터 heatmap이 안 나왔고 20220807까지 72개 전부 DB Insert된 것으로 봐서 그린블루 회사측 문제로 판단함.
+- IMIS ppt와 파일 그리고 메일 내용 연결지어 학습.
+: 텍스트문서에 간단히 필기함.
+
+<검증평가>
+- HFradar 시계열 검증 부분 익히기
+: 관측자료 hf와 mohid300m로 스킬량 추출

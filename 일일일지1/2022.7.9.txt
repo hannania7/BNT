@@ -1,0 +1,19 @@
+<해군>
+- 7일 예측자료 DB create table하려고 시도함
+: 그러나 crontab과 연관되어 있어 해군에서 더 찾아볼 필요가 있다고 사료됨
+- 일단 7일 예측자료 DB 입력만 생략하고 시도함
+(1) yes3k_7D, wrfdm1_7D, wrfdm2_7D, yes3k, wrfdm1, wrfdm2
+: 좌표계변환 적용함
+: 정상적으로 speed만듬 확인
+: toolsUI로 실행결과 데이터 정상적으로 나옴 확인
+(2) 관측자료
+: 정상 작동함
+(3) 분석자료
+: 정상 작동함
+- contour speed생성
+: 20220221자료 speed생성
+
+<검증평가>
+- 자료동화 기상모델
+: wrfdm1, wrfdm2 모두 concat Tair merge 수행시도
+: wrfdm1, wrfdm2 모두 concat uv merge 수행시도

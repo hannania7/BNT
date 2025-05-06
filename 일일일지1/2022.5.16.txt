@@ -1,0 +1,8 @@
+- ColManual.py, ObsMain.py, PreMain.py 설명할 수 있을만큼 자세히 정독
+
+- 이사님이 과제 주신 crontab으로 돌아갈 때 처음에 대내연동서버에서 파일을 읽고 그 다음 차례에 crontab이 돌아갈 때 파이썬 코드는 어떻게 수행하는 지 알아보기
+: no such file or directory 문구가 나오고 수집안됨으로 나오는 것이 결론
+
+- nc파일 불러오기 및 생성 복습
+
+- 운영자 지침서 정독 및 따로 요약하기

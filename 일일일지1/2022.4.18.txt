@@ -1,0 +1,11 @@
+- NetCDF 이해 및 실습
+: GeoServer의 호환문제 때문에 CF convention -> COARDS NetCDF convention으로 바꿔야한다는 것을 이해
+:  .nc파일 실행방법(cmd -> toolsUI) 습득
+: NetCDF는 Dimension(차원), coordinate Variables(좌표변수), Data Variables(데이터변수)로 구성함
+: ToolsUI프로그램에서 변수 정보 확인, 변수 값 확인, 데이터 검색 실습완료
+: python에서 netCDF4 모듈 import, dataset확인, dimensions확인, unlimited확인, varname, dtype, shape확인, attributes확인하는 방법 실습완료
+: python에서 netCDF4 파일 생성 실습완료
+
+- paraview 이해 및 실습
+
+: paraview에서는 nc파일 불러오기, 칼라 바꾸기, dimension 선택하기, 구형을 평면으로 바꾸기, 일부 범위만 선택 실습 완료

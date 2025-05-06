@@ -1,0 +1,29 @@
+- GitLab에 내용 전부 확인
+
+- 내일 이민지 대리님께 질문해야할 것 메모장에 최종정리
+
+- 데이터 수집 누락 점검 및 데이터 재수집 2회독
+: log로 보면 날짜별로 되어있어 오래 걸릴 것 같아 db의 mng_data_col_log를 보고 col_stat이 1인 obs데이터(no: 5번)을 ColMainManual.sh로 실습해봄
+: log로 보면 날짜별로 되어있어 오래 걸릴 것 같아 db의 mng_data_col_log를 보고 col_stat이 1인 obs데이터(no: 5번)와 pred(no : 108번)의 데이터를 직접 ColManual.sh로 실습해봄
+: ColManual.sh가 더 빠르게 데이터를 읽음을 알 수가 있었음
+
+- Gitlab에 해군 파일설명 + DBeaver 테이블 속성 + 테이블 명세서 이 세가지로 DB테이블, 파이썬 함수들 익히기
+: ColMain.py모듈은 수집시간마다 crontab으로 자동수집하는 모듈이며, 관측자료, 예측자료, 분석자료의 알고리즘과 col_time(데이터수집시간), time(현재시간-1), col_hour(현재시간-1)의 차이를 이해함
+: ColMainManual.py모듈은 관측자료(obs)만 입력한 날짜, 시간에 맞는 데이터를 일괄 수집하는 모듈이다.
+: ColManual.py모듈은 입력한 no, 날짜, 시간에 맞는 데이터 수동수집하는 모듈이며, 관측시간, 예측시간, 분석시간에 따라 다르게 다음과 같이 구현한다.
+
+1. 관측시간의 경우
+
+(로그 있음)
+입력한 number와 날짜 그리고 관측시간에 따라 log테이블에서 select한 후 이 때 select한 결과가 있는 경우, col_cnt를 +1하고 log파일을 열어봐서 시간 데이터가 있으면 col_stat값은 1이 되고 그 후 log테이블 db에 나머지는 그대로 두고 col_stat, col_cnt, now_date를 update시킨다. 그 후 ObsMain.py모듈로 이동해서 소분류에 맞는 테이블 db에 insert시킨 후, log파일 뒤에 데이터 번호, 데이터 카테고리 등 수집됐다는 것을 write시킨다.
+
+(로그 없음, 처음 수집)
+입력한 number와 날짜 그리고 관측시간에 따라 log테이블에서 select한 후 이 때 select한 결과가 없는 경우, col_cnt의 값은 1로하고 log테이블 db에 insert시킨 후, 이 때 col_stat의 값은 0이 되므로, log파일 뒤에 데이터 번호, 데이터 카테고리 등 수집이 안됐다는 것을 write시킨다.
+
+2. 예측시간, 분석시간의 경우
+
+(로그 있음)
+입력한 number와 날짜 그리고 예측, 분석시간에 따라 log테이블에서 select한 후 이 때 select한 결과가 있는 경우, col_cnt를 +1하고 log파일과 db에 head테이블에서 파일 사이즈가 같으면 col_stat값은 1이 되고 그 후 log테이블 db에 나머지는 그대로 두고 col_stat, col_cnt, now_date를 update시킨다. 그 후, PreMain.py모듈로 이동해서 소분류에 맞는 테이블 db에 insert시키거나 해수유동입력자료의 경우는 scp로 따로 작성한다. 그리고나서 마지막으로 log파일 뒤에 데이터 번호, 데이터 카테고리 등 수집됐다는 것을 write시킨다.
+
+(로그 없음, 처음 수집)
+입력한 number와 날짜 그리고 예측, 분석시간에 따라 log테이블에서 select한 후 이 때 select한 결과가 없는 경우, col_cnt의 값은 1로하고 log테이블 db에 insert시킨 후, 이 때 col_stat의 값은 0이 되므로, log파일 뒤에 데이터 번호, 데이터 카테고리 등 수집이 안됐다는 것을 write시킨다.

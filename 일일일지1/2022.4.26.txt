@@ -1,0 +1,14 @@
+- Gitlab에 해군 파일설명 + DBeaver 테이블 속성 + 테이블 명세서 이 세가지로 DB테이블 익히기(실습)
+: HSlice.py모듈 실습완료
+
+- 질문할 내용
+: PreMain.py모듈을 실행하기 위해 putty에서 /var/download/NBUSAN_result0955.csv 경로에 해당 csv파일을 복사했는데 NBUSAN_result0955.csv파일을 찾을 수 없다고 나옴.
+: 지금 ip주소가 192.168.10.66을 제외하고는 netCDF4가 import되지가 않아서 해결하기 위해 구글링을 하였지만 설치가 되지 않아서 도움 요청.
+: ColManual.py모듈을 실행하기 위해 putty에서 /var/download/61882120211218.dat 경로에 해당 csv파일을 복사했는데 61882120211218.dat파일을 찾을 수 없다고 나옴.
+: ColMainManual.py모듈 또한 같은 문제가 나옴
+: ColMain.py모듈 또한 같은 문제가 나옴
+: HSlice.py모듈에서 차장님이 주신 nc파일 푸는 방법 질문(NetCDF 활용)
+: HSlice.py모듈에서 mohid300m 완성 시키는 방법 질문
+
+- NetCDF 복습하기
+: 차장님이 nc파일을 주시면서 nc파일을 csv파일로 바꿔달라고 말씀해주셔서 수행하려고 노력함 그러나 아직 데이터가 없어서 파이썬 파일이 미완성된 mohid300m모델이어서 완성은 아직 못함 그러나 이것으로 눈으로만 봤던 NetCDF구조를 좀 더 세부적으로 배워나가고 있음

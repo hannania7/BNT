@@ -1,0 +1,20 @@
+<해군>
+- YES3K, WRFDM1모델의 예측모델은 7일치 데이터도 수집해야 하기 때문에 적용할 코드 구상 및 코드 초안 작성 후 부장님께 송부드림 
+
+<검증평가>
+- 자체개발 검증평가의 각각의 프로젝트별(HFR RADAR, PY_MODULE, 독도, 2020_hdf_to_nc, SeaHarmony, mohid_vis) 정의는 보기 쉽게 메모장 한 곳에 모음
+- 조화분해, 조화상수 개념은 wiki에서 확인 후 강동훈 대리님의 자료로 이해함
+- 다음 주 대표님 과제 대비로 고해상도 가시화 시스템에서는 nc파일을 json파일로 바꾸는 과정이 있다는 것을 확인함.
+  : nc파일을 json파일로 바꾸는 과정의 코드는 사실상 무슨 문제가 나올 지 완벽히 알 수 없기 때문에 YES3K만 개인적으로 어려웠던 부분을 기재함
+    -> yes3K의 경우 json : var의 경우는 var_name으로서 dimensions가 ocean_time, depth, lat, lon으로 4차원임
+    -> yes3k의 경우 lonlat.json : lat, lon의 통계치를 보는 것으로서 코드 사용시 확실히 하기 위해 sort가 필요해보임
+    -> yes3k의 경우 stream.json : 위와 동일
+    -> yes3k의 경우 uv.json : u와 v는 2차원, uv_array의 dimensions는 ocean_time, depth, u[0], u[1]으로 array에 입력함
+- json파일을 nc파일로 바꾸는 과정은 지금까지 본 코드에서는 찾아볼 수가 없었음
+  : json파일을 nc파일로 바꾸는 과정의 코드는 사실상 무슨 문제가 나올 지 완벽히 알 수는 없기 때문에 대략적으로 틀만 구상함
+    -> json파일 load로 dict형식으로 변환 후 읽기, json파일 안의 값 일부 추출, list파일 안의 값 일부 추출, CreateDimension, shape, reshape, createVariable, 변수 입력, property입력
+
+<다음주에 할 것>
+- PY_MODULE 프로젝트 쪽에서 모르는 구문 찾아서 질문리스트에 작성하기
+- YES3K, WRFDM1모델의 7일치 데이터 수집을 위해 코드 수정하기
+- 대표님이 주신 문제 해결해보기

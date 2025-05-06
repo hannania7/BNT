@@ -1,0 +1,9 @@
+-리눅스 이해 및 실습
+: touch(파일생성), vi(입력모드, 명령모드), cp(파일 복사), cat(파일 내용 출력), chmod(파일권한부여), dpkg(패키지 설치) 실습완료
+: shell script{bash(배열), 변수, 조건문(if, switch-case), 반복문(while, until, for), 함수} 실습완료
+: WinSCP를 활용한 리눅스 서버간 파일 주고받기 실습완료
+: crontab은 설정, 주기적으로 사용, log보기 실습완료
+
+-NetCDF 복습 및 실습
+: 직접 만들었던 NetCDF파일(new.nc)을 ToolsUI으로 Dimensions, variables, attributes확인을 한 번 더 실습하고 temp data범위을 직접 바꿔가며 한 번 더 실습함
+: 직접 만들었던 NetCDF파일(new.nc)을 python으로 Dimensions, variables, attributes확인을 한 번 더 실습함

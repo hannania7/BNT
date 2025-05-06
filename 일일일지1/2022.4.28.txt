@@ -1,0 +1,18 @@
+- Gitlab에 해군 파일설명 + DBeaver 테이블 속성 + 테이블 명세서 이 세가지로 DB테이블 익히기(실습)
+: 이은아차장님이 주신 mohid300m nc파일을 csv파일로 바꿔서 포인트 값 나오기 성공
+: ColManual.py모듈, ObsMain.py모듈, PreMain.py모듈 안에서 함수 부분적으로 불러와 쓸 수 있으므로 자세히 보기
+
+ 
+
+- 연구노트에 data_path, output, main, 파이썬이나 sh파일경로, 결과위치인 이 5가지를 각 파이썬 모듈마다 정리하기
+: HSlice.py 완료
+
+ 
+
+- 질문할 내용
+: 질문할 내용 아는 것은 제외시킴
+: 직접 만든 mohid_nc_to_csv.py모듈에 netCDF부분에서 mohid300m모델부분 description쓸 때 list는 안된다면서 error가 뜨는데 error해결하는 방법 물어보기
+: ColManual.py모듈에서 subprocess인 리그리딩하는 문법은 아는데 server적혀있는 문법 물어보기
+: HSlice.py모듈의 리그리딩하는 문장에서 가중치 파일이 뭔지 물어보기
+: 반복문으로 돌아가는 rho point 변환 코드가 해군 모든 파이썬 파일에 없는 것 같은데 맞는 지
+: PreMain.py모듈에서 def u2rho(u)와 def v2rho(v) 쓰인 이유 물어보기
